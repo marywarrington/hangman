@@ -21,14 +21,25 @@ CurrentWord.prototype.getGameWord = function() {
 }
 
 CurrentWord.prototype.guess = function(letter) {
-  if(letter.length > 1) letter = letter[0];
-  var output = this.word.toLowerCase().includes(letter.toLowerCase());
-  if (output) {
-    this.guessedLetters += letter;
+  var output = false;
+  if(typeof(letter) === 'string') {
+    if(letter.length > 1) letter = letter[0];
+    output = this.word.toLowerCase().includes(letter.toLowerCase());
+    if (output) {
+      this.guessedLetters += letter;
+    }
   }
   return output;
 }
 
 CurrentWord.prototype.didYouWin = function() {
   return this.word === this.getGameWord();
+}
+
+function Letters() {
+  this.letters = "abcdefhijklmnopqrstuvwxyz";
+}
+
+Letters.prototype.unGuessed = function() {
+  return this.letters;
 }

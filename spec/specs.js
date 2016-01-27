@@ -48,4 +48,15 @@ describe("CurrentWord", function() {
     currentWord.guess('te');
     expect(currentWord.getGameWord()).to.equal('t__t');
   });
+  it('ignores numbers as guesses', function() {
+    var currentWord = new CurrentWord('test');
+    expect(currentWord.guess(1)).to.equal(false);
+  });
+});
+
+describe('Letters', function() {
+  it("returns all letters that have not been guessed", function() {
+    var testLetter = new Letters();
+    expect(testLetter.unGuessed()).to.equal("abcdefhijklmnopqrstuvwxyz");
+  });
 });
