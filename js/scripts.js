@@ -83,3 +83,12 @@ Letters.prototype.getUnGuessedLettersInDiv = function() {
 Letters.prototype.getGuessedLettersInDiv = function() {
   return this.getLettersInTag(this.guessedLetters(), 'div');
 }
+
+function StickFigure() {
+  this.bodyParts = 6;
+  this.fails = 0;
+}
+
+StickFigure.prototype.showParts = function() {
+  return this.fails;
+}

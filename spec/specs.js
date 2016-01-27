@@ -67,3 +67,10 @@ describe('Letters', function() {
     expect(testLetter.guessedLetters()).to.equal('a');
   });
 });
+
+describe('StickFigure', function() {
+  it("has zero bodyparts if no guesses are made", function() {
+    var testBody = new StickFigure();
+    expect(testBody.showParts()).to.equal(0);
+  });
+});
