@@ -17,7 +17,7 @@ CurrentWord.prototype.getNewWord = function() {
 }
 
 CurrentWord.prototype.getGameWord = function() {
-  return this.word.replace(new RegExp('[^'+this.guessedLetters+']', 'gi'), '_');
+  return this.word.replace(new RegExp('[^' + this.guessedLetters + ']', 'gi'), '_');
 }
 
 CurrentWord.prototype.guess = function(letter) {
@@ -26,4 +26,8 @@ CurrentWord.prototype.guess = function(letter) {
     this.guessedLetters += letter;
   }
   return output;
+}
+
+CurrentWord.prototype.didYouWin = function() {
+  return this.word === this.getGameWord();
 }

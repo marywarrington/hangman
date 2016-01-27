@@ -36,4 +36,11 @@ describe("CurrentWord", function() {
     currentWord.guess('o');
     expect(currentWord.getGameWord()).to.equal("O___O_");
   });
+  it('returns true if you have won the game', function() {
+    var currentWord = new CurrentWord('test');
+    currentWord.guess('t');
+    currentWord.guess('e');
+    currentWord.guess('s');
+    expect(currentWord.didYouWin()).to.equal(true);
+  })
 });
