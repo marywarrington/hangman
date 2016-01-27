@@ -42,5 +42,10 @@ describe("CurrentWord", function() {
     currentWord.guess('e');
     currentWord.guess('s');
     expect(currentWord.didYouWin()).to.equal(true);
-  })
+  });
+  it('only looks at the first letter of a guess string', function() {
+    var currentWord = new CurrentWord('test');
+    currentWord.guess('te');
+    expect(currentWord.getGameWord()).to.equal('t__t');
+  });
 });

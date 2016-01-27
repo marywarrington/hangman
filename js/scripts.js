@@ -21,6 +21,7 @@ CurrentWord.prototype.getGameWord = function() {
 }
 
 CurrentWord.prototype.guess = function(letter) {
+  if(letter.length > 1) letter = letter[0];
   var output = this.word.toLowerCase().includes(letter.toLowerCase());
   if (output) {
     this.guessedLetters += letter;
