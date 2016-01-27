@@ -5,3 +5,12 @@ function WordLibrary() {
 WordLibrary.prototype.randomWord = function() {
   return this.words[Math.floor(Math.random() * (this.words.length))];
 }
+
+function CurrentWord(word) {
+  this.word = word;
+}
+
+CurrentWord.prototype.getNewWord = function() {
+  var lib = new WordLibrary();
+  this.word = lib.randomWord();
+}
