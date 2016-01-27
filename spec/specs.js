@@ -72,5 +72,7 @@ describe('StickFigure', function() {
   it("has zero bodyparts if no guesses are made", function() {
     var testBody = new StickFigure();
     expect(testBody.showParts()).to.equal(0);
+    testBody.guess(false);
+    expect(testBody.showParts()).to.equal(1);
   });
 });

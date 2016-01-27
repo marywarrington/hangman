@@ -92,3 +92,9 @@ function StickFigure() {
 StickFigure.prototype.showParts = function() {
   return this.fails;
 }
+
+StickFigure.prototype.guess = function(guess) {
+  if (!guess) {
+    this.fails++;
+  }
+}
