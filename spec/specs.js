@@ -24,7 +24,11 @@ describe("CurrentWord", function() {
     expect(currentWord.getGameWord()).to.equal('____');
   });
   it('returns true if the letter guessed is in the word', function () {
-    var currentWord = new CurrentWord('oRegon');
+    var currentWord = new CurrentWord('oregon');
+    expect(currentWord.guess('r')).to.equal(true);
+  });
+  it('does not care about case when guessing letters', function() {
+    var currentWord = new CurrentWord('OREGON');
     expect(currentWord.guess('r')).to.equal(true);
   });
 });
