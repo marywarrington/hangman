@@ -57,9 +57,29 @@ Letters.prototype.unGuessed = function() {
 // removes the guessed letter from letters
 Letters.prototype.guess = function(letter) {
   this.guesses = this.guesses + letter;
-  // put guess in guesses
 }
 
+// returns all the guessed letters
 Letters.prototype.guessedLetters = function() {
   return this.guesses;
+}
+
+// get the letters in ANY html tags
+Letters.prototype.getLettersInTag = function(letters, tag) {
+  letters = letters.split('');
+  var output = '';
+  letters.forEach(function(letter){
+    output += '<'+tag+'>'+letter+'</'+tag+'>';
+  });
+  return output;
+}
+
+// get the unguessed letters in divs
+Letters.prototype.getUnGuessedLettersInDiv = function() {
+  return this.getLettersInTag(this.unGuessed(), 'div');
+}
+
+// get the guessed letters in divs
+Letters.prototype.getGuessedLettersInDiv = function() {
+  return this.getLettersInTag(this.guessedLetters(), 'div');
 }
