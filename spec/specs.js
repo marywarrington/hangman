@@ -57,7 +57,12 @@ describe("CurrentWord", function() {
 describe('Letters', function() {
   it("returns all letters that have not been guessed", function() {
     var testLetter = new Letters();
-    expect(testLetter.unGuessed()).to.equal("abcdefhijklmnopqrstuvwxyz");
-
+    expect(testLetter.unGuessed()).to.equal("abcdefghijklmnopqrstuvwxyz");
+    testLetter.guess('a');
+    expect(testLetter.unGuessed()).to.equal("bcdefghijklmnopqrstuvwxyz");
   });
+  // it("will add letters guessed to the string guesses", function() {
+  //   var testLetter = new Letters();
+  //   expect(testLetter.guess('a')).to.equal('a');
+  // });
 });
