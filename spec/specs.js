@@ -58,5 +58,6 @@ describe('Letters', function() {
   it("returns all letters that have not been guessed", function() {
     var testLetter = new Letters();
     expect(testLetter.unGuessed()).to.equal("abcdefhijklmnopqrstuvwxyz");
+
   });
 });
