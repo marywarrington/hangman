@@ -8,6 +8,7 @@ WordLibrary.prototype.randomWord = function() {
 
 function CurrentWord(word) {
   this.word = word;
+  this.guessedLetters = '';
 }
 
 CurrentWord.prototype.getNewWord = function() {
@@ -17,4 +18,12 @@ CurrentWord.prototype.getNewWord = function() {
 
 CurrentWord.prototype.getGameWord = function() {
   return this.word.replace(/[^]/g, '_');
+}
+
+CurrentWord.prototype.guess = function(letter) {
+  var output = this.word.toLowerCase().includes(letter);
+  if (output) {
+    this.guessedLetters += letter;
+  }
+  return output;
 }
