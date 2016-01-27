@@ -19,4 +19,8 @@ describe("CurrentWord", function() {
     currentWord.getNewWord();
     expect(currentWord.word).to.equal('Alabama');
   });
+  it('provides the word with the blanks for letters that have not been correctly guessed', function() {
+    var currentWord = new CurrentWord('test');
+    expect(currentWord.getGameWord()).to.equal('____');
+  });
 });

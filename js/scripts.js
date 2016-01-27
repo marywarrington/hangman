@@ -14,3 +14,7 @@ CurrentWord.prototype.getNewWord = function() {
   var lib = new WordLibrary();
   this.word = lib.randomWord();
 }
+
+CurrentWord.prototype.getGameWord = function() {
+  return this.word.replace(/[^]/g, '_');
+}
