@@ -1,7 +1,7 @@
 function WordLibrary() {
-  this.words = ['Alabama'];
+  this.words = ['Alabama', 'Arkansas', 'Mississippi', 'Florida'];
 }
 
 WordLibrary.prototype.randomWord = function() {
-  return this.words[0];
+  return this.words[Math.floor(Math.random() * (this.words.length))];
 }
