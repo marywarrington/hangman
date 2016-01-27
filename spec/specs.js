@@ -61,8 +61,9 @@ describe('Letters', function() {
     testLetter.guess('a');
     expect(testLetter.unGuessed()).to.equal("bcdefghijklmnopqrstuvwxyz");
   });
-  // it("will add letters guessed to the string guesses", function() {
-  //   var testLetter = new Letters();
-  //   expect(testLetter.guess('a')).to.equal('a');
-  // });
+  it("returns all the guessed letters", function() {
+    var testLetter = new Letters();
+    testLetter.guess('a')
+    expect(testLetter.guessedLetters()).to.equal('a');
+  });
 });

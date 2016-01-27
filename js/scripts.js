@@ -57,9 +57,9 @@ Letters.prototype.unGuessed = function() {
 // removes the guessed letter from letters
 Letters.prototype.guess = function(letter) {
   this.guesses = this.guesses + letter;
-  // remove guess from letters
   // put guess in guesses
 }
 
-// currentword - tell you if the letter is in the word
-// letters - stores the guesses and provides unguessed letters
+Letters.prototype.guessedLetters = function() {
+  return this.guesses;
+}
