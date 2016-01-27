@@ -31,4 +31,9 @@ describe("CurrentWord", function() {
     var currentWord = new CurrentWord('OREGON');
     expect(currentWord.guess('r')).to.equal(true);
   });
+  it('provides the game word with the guessed letters showing', function() {
+    var currentWord = new CurrentWord('OREGON');
+    currentWord.guess('o');
+    expect(currentWord.getGameWord()).to.equal("O___O_");
+  });
 });

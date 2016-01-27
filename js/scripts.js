@@ -17,7 +17,7 @@ CurrentWord.prototype.getNewWord = function() {
 }
 
 CurrentWord.prototype.getGameWord = function() {
-  return this.word.replace(/[^]/g, '_');
+  return this.word.replace(new RegExp('[^'+this.guessedLetters+']', 'gi'), '_');
 }
 
 CurrentWord.prototype.guess = function(letter) {
