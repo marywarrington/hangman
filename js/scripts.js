@@ -1,5 +1,5 @@
 function WordLibrary() {
-  this.words = ['Alabama', 'Arkansas', 'Mississippi', 'Florida'];
+  this.words = ['Alabama', 'Arkansas', 'Mississippi', 'Florida', "Massachusettes", "Arizona", "Texas", "California", "Colorado", "Michigan"];
 }
 
 WordLibrary.prototype.randomWord = function() {

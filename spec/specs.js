@@ -9,6 +9,6 @@ describe('WordLibrary', function() {
   });
   it("will return a random word from the array .words", function() {
     var testWord = new WordLibrary();
-    expect(testWord.randomWord()).to.equal("");
+    expect(testWord.randomWord()).to.equal("Alabama");
   });
 });
