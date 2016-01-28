@@ -98,3 +98,52 @@ StickFigure.prototype.guess = function(guess) {
     this.fails++;
   }
 }
+
+function PlayHangman() {
+  this.wordLibrary = new WordLibrary();
+  this.currentWord = new CurrentWord();
+  this.currentWord.getNewWord();
+  this.letters = new Letters();
+  this.stickFigure = new StickFigure();
+}
+
+PlayHangman.prototype.getGameWord = function() {
+  return this.currentWord.getGameWord();
+}
+
+PlayHangman.prototype.guess = function(letter) {
+  this.stickFigure.guess(this.currentWord.guess(letter));
+  this.letters.guess(letter);
+}
+
+PlayHangman.prototype.getGuessedLettersInDiv = function() {
+  return this.letters.getGuessedLettersInDiv();
+}
+
+PlayHangman.prototype.getUnGuessedLettersInDiv = function() {
+  return this.letters.getUnGuessedLettersInDiv();
+}
+
+PlayHangman.prototype.showParts = function() {
+  return this.stickFigure.showParts();
+}
+
+// Begin User Interface
+
+$(document).ready(function() {
+  // game start - populate the letters and word
+  // on letter click, guess and display word, body parts, letters and getGuessedLettersInDiv
+  // on potential navigation/page reload ask to make sure so they don't loose game progress
+  // inform user if win or lose
+  var game = new PlayHangman();
+
+  $('.word').text(game.getGameWord());
+  $('.letters').html(game.getUnGuessedLettersInDiv());
+
+  $('.letters div').each(function() {
+    $(this).click(function() {
+      game.guess($(this).text());
+      $('.word').text(game.getGameWord());
+    });
+  });
+});

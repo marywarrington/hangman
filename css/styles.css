@@ -1,0 +1,14 @@
+.word {
+  font-size:2em;
+  letter-spacing: 10px;
+}
+
+.letters div {
+  font-size:2em;
+  display:inline-block;
+  padding:10px;
+  margin:10px;
+  border:1px solid red;
+  border-radius:5px;
+  cursor:pointer;
+}
