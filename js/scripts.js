@@ -25,6 +25,10 @@ CurrentWord.prototype.getGameWord = function() {
   return this.word.replace(new RegExp('[^' + this.guessedLetters + ']', 'gi'), '_');
 }
 
+CurrentWord.prototype.getFullWord = function() {
+  return this.word;
+}
+
 // tells you if the guessed letter is inside the word
 CurrentWord.prototype.guess = function(letter) {
   var output = false;
@@ -99,6 +103,10 @@ StickFigure.prototype.guess = function(guess) {
   }
 }
 
+StickFigure.prototype.isDead = function() {
+  return (this.fails >= this.bodyParts);
+}
+
 function PlayHangman() {
   this.wordLibrary = new WordLibrary();
   this.currentWord = new CurrentWord();
@@ -109,6 +117,10 @@ function PlayHangman() {
 
 PlayHangman.prototype.getGameWord = function() {
   return this.currentWord.getGameWord();
+}
+
+PlayHangman.prototype.getFullWord = function() {
+  return this.currentWord.getFullWord();
 }
 
 PlayHangman.prototype.guess = function(letter) {
@@ -128,10 +140,17 @@ PlayHangman.prototype.showParts = function() {
   return this.stickFigure.showParts();
 }
 
+PlayHangman.prototype.isDead = function() {
+  return this.stickFigure.isDead();
+}
+
+PlayHangman.prototype.didYouWin = function() {
+  return this.currentWord.didYouWin();
+}
 // Begin User Interface
 
 $(document).ready(function() {
-  // game start - populate the letters and word
+
   // on letter click, guess and display word, body parts, letters and getGuessedLettersInDiv
   // on potential navigation/page reload ask to make sure so they don't loose game progress
   // inform user if win or lose
@@ -139,11 +158,22 @@ $(document).ready(function() {
 
   $('.word').text(game.getGameWord());
   $('.letters').html(game.getUnGuessedLettersInDiv());
-
+  $('.bodyParts img').attr('src', 'img/hangman' + game.showParts() + '.jpg');
   $('.letters div').each(function() {
     $(this).click(function() {
       game.guess($(this).text());
       $('.word').text(game.getGameWord());
+      $('.bodyParts img').attr('src', 'img/hangman' + game.showParts() + '.jpg');
+      $(this).addClass('clicked');
+      if (game.isDead()) {
+        $('.letters').hide();
+        $('.gameOver').show();
+        $('.word').text(game.getFullWord());
+      } else if (game.didYouWin()) {
+        $('.bodyParts img').attr('src', 'img/hangmanwin.jpg');
+        $('.letters').hide();
+        $('.gameWin').show();
+      }
     });
   });
 });
