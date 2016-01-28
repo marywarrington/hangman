@@ -1,6 +1,6 @@
 // contains all the words in the game
 function WordLibrary() {
-  this.words = ['Alabama', 'Arkansas', 'Mississippi', 'Florida', "Massachusettes", "Arizona", "Texas", "California", "Colorado", "Michigan"];
+  this.words = ["Alabama", "Alaska", "Arizona", "Arkansas", "California", "Colorado", "Connecticut", "Delaware", "Florida", "Georgia", "Hawaii", "Idaho", "Illinois", "Indiana", "Iowa", "Kansas", "Kentucky", "Louisiana", "Maine", "Maryland", "Massachusetts", "Michigan", "Minnesota", "Mississippi", "Missouri", "Montana", "Nebraska", "Nevada", "New-Hampshire", "New-Jersey", "New-Mexico", "New-York", "North-Carolina", "North-Dakota", "Ohio", "Oklahoma", "Oregon", "Pennsylvania", "Rhode", "Island", "South", "Carolina", "South", "Dakota", "Tennessee", "Texas", "Utah", "Vermont", "Virginia", "Washington", "West-Virginia", "Wisconsin", "Wyoming"];
 }
 
 // returns a random word for the player
@@ -11,7 +11,7 @@ WordLibrary.prototype.randomWord = function() {
 // stores the word to be played
 function CurrentWord(word) {
   this.word = word;
-  this.guessedLetters = '';
+  this.guessedLetters = '-';
 }
 
 // gets a new word from the word library
