@@ -147,32 +147,43 @@ PlayHangman.prototype.isDead = function() {
 PlayHangman.prototype.didYouWin = function() {
   return this.currentWord.didYouWin();
 }
+
 // Begin User Interface
+
+function gameOver(winOrLose) {
+  $('.letters').hide();
+  $('.game'+winOrLose).show();
+}
+
+function updateUI(game) {
+  $('.word').text(game.getGameWord());
+  $('.bodyParts img').attr('src', 'img/hangman' + game.showParts() + '.jpg');
+}
 
 $(document).ready(function() {
 
-  // on letter click, guess and display word, body parts, letters and getGuessedLettersInDiv
-  // on potential navigation/page reload ask to make sure so they don't loose game progress
-  // inform user if win or lose
+  // new hangman game
   var game = new PlayHangman();
 
-  $('.word').text(game.getGameWord());
+  // update the letters and body parts image
+  updateUI(game);
+  // populate the guessable letters
   $('.letters').html(game.getUnGuessedLettersInDiv());
-  $('.bodyParts img').attr('src', 'img/hangman' + game.showParts() + '.jpg');
+
+  // make the letters clickable
   $('.letters div').each(function() {
     $(this).click(function() {
-      game.guess($(this).text());
-      $('.word').text(game.getGameWord());
-      $('.bodyParts img').attr('src', 'img/hangman' + game.showParts() + '.jpg');
-      $(this).addClass('clicked');
-      if (game.isDead()) {
-        $('.letters').hide();
-        $('.gameOver').show();
+      // when a letter is clicked on,
+      game.guess($(this).text()); // guess the letter
+      updateUI(game); // update the UI
+      $(this).addClass('clicked'); // show that its been clicked
+      $(this).off();// dont listen for future clicks on guessed letters
+      if (game.isDead()) { // check to see if they hung themselves
+        gameOver('Over'); // game is over
         $('.word').text(game.getFullWord());
-      } else if (game.didYouWin()) {
-        $('.bodyParts img').attr('src', 'img/hangmanwin.jpg');
-        $('.letters').hide();
-        $('.gameWin').show();
+      } else if (game.didYouWin()) { // check to see if they won
+        $('.bodyParts img').attr('src', 'img/hangmanwin.jpg'); // show the survivor image
+        gameOver('Win'); // game is over
       }
     });
   });
