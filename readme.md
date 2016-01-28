@@ -1,38 +1,34 @@
-# _{Application Name}_
+# Hangman
 
-#### _{Brief description of application}, {Date of current version}_
+#### This application lets you play hangman, 1.28.2016
 
-#### By Nicholas Jensen-Hay and PAIR
+#### By Nicholas Jensen-Hay and Mary Warrington
 
 ## Description
 
-_{This is a detailed description of your application. Its purpose and usage.  Give as much detail as needed to explain what the application does, and any other information you want users or other developers to have. }_
+Hangman presents the user with a random word, blanked out to not show any letters, and then lets them choose letters. When they choose a letter that the word contains, it is revealed! If they choose a letter not contained in the word, the hangman gains body parts. When the hangman is complete (with six bodyparts), they lose the game. If they guess the word in its entirety, they win!
 
 ## Setup/Installation Requirements
 
-* _This is a great place_
-* _to list setup instructions_
-* _in a simple_
-* _easy-to-understand_
-* _format_
-
-_{Leave nothing to chance! You want it to be easy for potential users, employers and collaborators to run your app. Do I need to run a server? How should I set up my databases? Is there other code this app depends on?}_
+* Open webpage from our gh-pages in a current web browser
 
 ## Known Bugs
 
-_{Are there issues that have not yet been resolved that you want to let users know you know?  Outline any issues that would impact use of your application.  Share any workarounds that are in place. }_
+No known bugs
 
 ## Support and contact details
 
 Contact Nicholas Jensen-Hay through Github at http://github.com/hreacon/
+or Mary Warrington through Github at http://www.github.com/marywarrington/
 
 ## Technologies Used
 
-_{Tell me about the languages and tools you used to create this app. Assume that I know you probably used HTML and CSS. If you did something really cool using only HTML, point that out.}_
+* Javascript
+* jQuery
 
 ### License
 
-Copyright (c) 2016 Nicholas Jensen-Hay and PAIR
+Copyright (c) 2016 Nicholas Jensen-Hay and Mary Warrington
 
 MIT License
 
